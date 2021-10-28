@@ -24,6 +24,4 @@ Route::post('todo/create', [TodoListController::class, 'create']);
 Route::get('todo/update', [TodoListController::class, 'edit']);
 Route::post('todo/update', [TodoListController::class, 'update']);
 Route::get('todo/delete', [TodoListController::class, 'delete']);
-Route::delete('todo/delete', [TodoListController::class, 'remove']);
-// Route::get('/delete', [TodoListController::class, 'delete']);
-// Route::post('/delete', [TodoListController::class, 'remove']);
+Route::delete('todo/delete/{contents}', [TodoListController::class, 'remove']);

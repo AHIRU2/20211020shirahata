@@ -11,7 +11,7 @@ class TodoList extends Model
 
     protected $table = 'todolists';
 
-    protected $fillable = ['content'];
+    protected $fillable = ['id', 'content'];
 
     public static $rules = array(
         'content' => 'required|min:1|max:20'

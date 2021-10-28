@@ -10,8 +10,8 @@ class TodoListController extends Controller
 {
     public function index()
     {
-        $items = TodoList::all();
-        return view('index', ['items' => $items]);
+        $contents = TodoList::all();
+        return view('index', ['contents' => $contents]);
     }
 
     public function find()
@@ -32,7 +32,7 @@ class TodoListController extends Controller
     public function add()
     {
         $contents = TodoList::all();
-        return view('todo/create', ['contents' => $contents]);
+        return view('/todo/create', ['contents' => $contents]);
     }
 
     public function create(Request $request)
@@ -40,13 +40,13 @@ class TodoListController extends Controller
         $this->validate($request, TodoList::$rules);
         $form = $request->all();
         TodoList::create($form);
-        return redirect('todo/create');
+        return redirect('/todo/create');
     }
 
-    public function edit(Request $request)
+    public function edit()
     {
         $contents = TodoList::all();
-        return view('todo/update', ['contents' => $contents]);
+        return view('/todo/update', ['contents' => $contents]);
     }
 
     public function update(Request $request)
@@ -54,35 +54,19 @@ class TodoListController extends Controller
         $this->validate($request, TodoList::$rules);
         $form = $request->all();
         unset($form['_token']);
-        TodoList::where('contents', $request->contents)->update($form);
-        return redirect('todo/update');
+        TodoList::where('id', $request->id)->update($form);
+        return redirect('/');
     }
-
-    // public function delete()
-    // {
-    //     $contents = TodoList::all();
-    //     return view('todo/delete', ['contents' => $contents]);
-    // }
-
-    // public function remove(TodoList $contents)
-    // {
-    //     $contents->delete();
-    //     return redirect('todo/delete');
-    // }
-
 
     public function delete()
     {
         $contents = TodoList::all();
-        return view('todo/delete', ['contents' => $contents]);
+        return view('/todo/delete', ['contents' => $contents]);
     }
 
     public function remove(TodoList $contents)
     {
-        // $this->validate($request, TodoList::$rules);
-        // $form = $request->all();
-        // TodoList::create($form);
-        TodoList::find($contents->id)->delete();
-        return redirect('/');
+        $contents->delete();
+        return redirect('/todo/delete');
     }
 }
