@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TodoList;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class TodoListController extends Controller
 {
@@ -11,6 +12,21 @@ class TodoListController extends Controller
     {
         $items = TodoList::all();
         return view('index', ['items' => $items]);
+    }
+
+    public function find()
+    {
+        return view('find', ['input' => '']);
+    }
+
+    public function search(Request $request)
+    {
+        $item = TodoList::where('contents', 'LIKE', "%{$request->input}%")->first();
+        $param = [
+            'input' => $request->input,
+            'item' => $item
+        ];
+        return view('find', $param);
     }
 
     public function add()
@@ -42,15 +58,31 @@ class TodoListController extends Controller
         return redirect('todo/update');
     }
 
+    // public function delete()
+    // {
+    //     $contents = TodoList::all();
+    //     return view('todo/delete', ['contents' => $contents]);
+    // }
+
+    // public function remove(TodoList $contents)
+    // {
+    //     $contents->delete();
+    //     return redirect('todo/delete');
+    // }
+
+
     public function delete()
     {
         $contents = TodoList::all();
         return view('todo/delete', ['contents' => $contents]);
     }
 
-    public function remove($contents)
+    public function remove(TodoList $contents)
     {
-        TodoList::where('contents', $contents)->delete();
-        return redirect('todo/delete');
+        // $this->validate($request, TodoList::$rules);
+        // $form = $request->all();
+        // TodoList::create($form);
+        TodoList::find($contents->id)->delete();
+        return redirect('/');
     }
 }

@@ -55,6 +55,15 @@
         margin-left: 50px;
     }
 
+    .task input {
+        height: 25px;
+        font-size: 14px;
+        border: 1px solid #CACACA;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+
     table {
         width: 100%;
         text-align: center;
@@ -67,7 +76,7 @@
 
 
     td {
-        padding: 5px 40px;
+        padding: 5px 10px;
         text-align: center;
     }
 </style>
@@ -75,7 +84,17 @@
 <body>
     <div class="TodoList">
         <h1>Todo List</h1>
-        <form action="remove" method="get">
+        @if (count($errors) > 0)
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>
+                {{$error}}
+            </li>
+            @endforeach
+        </ul>
+        @endif
+        <form action="/todo/remove" method="post">
+            @csrf
             <div class="add">
                 <input type="text" name="content">
                 <button>追加</button>
@@ -94,7 +113,10 @@
                         {{$item->created_at}}
                     </td>
                     <td>
-                        {{$item->content}}
+                        <div class="task">
+                            <input type="text" name="content" value="{{$item->content}}">
+                        </div>
+                        <!-- {{$item->content}} -->
                     </td>
                     <td>
                         <button class="edit" type="button">編集</button>

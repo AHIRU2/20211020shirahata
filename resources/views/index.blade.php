@@ -107,16 +107,16 @@
                     <th>更新</th>
                     <th>削除</th>
                 </tr>
-                @foreach ($contents as $item)
+                @foreach ($items as $item)
                 <tr>
                     <td>
                         {{$item->created_at}}
                     </td>
                     <td>
-                        <!-- <div class="task">
+                        <div class="task">
                             <input type="text" name="content" value="{{$item->content}}">
-                        </div> -->
-                        {{$item->content}}
+                        </div>
+                        <!-- {{$item->content}} -->
                     </td>
                     <td>
                         <button class="edit" type="button">編集</button>
