@@ -49,13 +49,11 @@ class TodoListController extends Controller
         return view('/todo/update', ['contents' => $contents]);
     }
 
-    public function update(Request $request)
+    public function update(TodoList $request)
     {
-        $this->validate($request, TodoList::$rules);
-        $form = $request->all();
-        unset($form['_token']);
-        TodoList::where('id', $request->id)->update($form);
-        return redirect('/');
+        $contents = TodoList::find($request->id);
+        TodoList::where('id', $contents->id)->update($contents);
+        return redirect('/todo/update');
     }
 
     public function delete()

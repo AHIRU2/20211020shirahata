@@ -117,19 +117,20 @@
                     <td>
                         {{$item->created_at}}
                     </td>
-                    <td>
-                        <form action="{{url('todo/update/'.$item->id)}}" method="post">
-                            @csrf
-                            <!-- {{ method_field('PATCH') }} -->
+                    <form action="{{url('todo/update/'.$item->id)}}" method="post">
+                        @csrf
+
+                        <td>
+                            <!-- <input type="hidden" name="_method" value="PATCH"> -->
                             <input type="hidden" name="_token" value="{{$item->id}}">
                             <div class="task">
-                                <input type="text" name="content" value="{{$item->content}}" />
+                                <input type="text" name="content" value="{{$item->content}}">
                             </div>
                             <!-- {{$item->content}} -->
-                    </td>
-                    <td>
-                        <button type="submit" class="edit">編集</button>
-                    </td>
+                        </td>
+                        <td>
+                            <button type="submit" class="edit">編集</button>
+                        </td>
                     </form>
                     <td>
                         <form action="{{url('todo/delete/'.$item->id)}}" method="post">
