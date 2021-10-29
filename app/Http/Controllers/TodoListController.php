@@ -40,7 +40,7 @@ class TodoListController extends Controller
         $this->validate($request, TodoList::$rules);
         $form = $request->all();
         TodoList::create($form);
-        return redirect('/todo/create');
+        return redirect('/');
     }
 
     public function edit()
@@ -53,7 +53,7 @@ class TodoListController extends Controller
     {
         $contents = $request->all();
         TodoList::where('id', $request->id)->update($contents);
-        return redirect('/todo/update');
+        return redirect('/');
     }
 
     public function delete()
@@ -65,6 +65,6 @@ class TodoListController extends Controller
     public function remove(TodoList $contents)
     {
         $contents->delete();
-        return redirect('/todo/delete');
+        return redirect('/');
     }
 }
