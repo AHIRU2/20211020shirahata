@@ -117,8 +117,11 @@
                     <td>
                         {{$item->created_at}}
                     </td>
-                    <form action="{{url('todo/update/'.$item->id)}}" method="post">
+                    <form action="todo/update" method="post">
+                        @csrf
+
                         <td>
+                            <input type="hidden" name="_token" value="{{$item->id}}">
                             <div class="task">
                                 <input type="text" name="content" value="{{$item->content}}">
                             </div>

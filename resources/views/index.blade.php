@@ -98,7 +98,7 @@
                 @endforeach
             </ul>
             @endif
-            <form action="create" method="post">
+            <form action="todo/create" method="post">
                 @csrf
                 <div class="add">
                     <input type="text" name="content">
