@@ -117,7 +117,7 @@
                     <td>
                         {{$item->created_at}}
                     </td>
-                    <form action="update" method="post">
+                    <form action="todo/update" method="post">
                         @csrf
 
                         <td>
