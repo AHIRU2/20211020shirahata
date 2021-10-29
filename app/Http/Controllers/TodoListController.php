@@ -49,10 +49,10 @@ class TodoListController extends Controller
         return view('/todo/update', ['contents' => $contents]);
     }
 
-    public function update(TodoList $request)
+    public function update(Request $request)
     {
-        $contents = TodoList::find($request->id);
-        TodoList::where('id', $contents->id)->update($contents);
+        $contents = $request->all();
+        TodoList::where('id', $request->id)->update($contents);
         return redirect('/todo/update');
     }
 

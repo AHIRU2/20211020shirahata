@@ -117,7 +117,7 @@
                     <td>
                         {{$item->created_at}}
                     </td>
-                    <form action="{{url('todo/update/'.$item->id)}}" method="post">
+                    <form action="{{url('todo/update/')}}" method="post">
                         @csrf
 
                         <td>
