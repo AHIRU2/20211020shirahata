@@ -1,0 +1,157 @@
+/* body {
+    background-color: #291E77;
+    position: relative;
+} */
+
+body {
+    background-color: #291E77;
+    margin: auto;
+}
+
+h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-size: 25px;
+}
+
+button {
+    height: 35px;
+    width: 60px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: 12px;
+}
+/* 
+.TodoList {
+    width: 55%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 50%);
+    border-radius: 10px;
+} */
+
+.TodoList {
+    width: 55%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 10% auto;
+    padding: 5px;
+}
+
+.TodoContents {
+    width: 100%;
+}
+
+li{
+    margin-left: 35px;
+}
+
+.add {
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.add input {
+    width: 70%;
+    padding-right: 30px;
+    height: 30px;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+}
+
+.add button {
+    margin-left: 50px;
+}
+
+.task input {
+    height: 25px;
+    font-size: 14px;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.create{
+border: solid 2px #CE79F3;
+font-weight: bold;
+color: #CE79F3;
+}
+
+.create:hover{
+    background-color: #CE79F3;
+    color: #ffffff;
+}
+
+.edit{
+    border: solid 2px #ED9B78;
+    font-weight: bold;
+    color: #ED9B78;
+}
+
+.edit:hover{
+    background-color: #ED9B78;
+    color: #ffffff;
+}
+
+.delete{
+    border: solid 2px #96F7DD;
+    font-weight: bold;
+    color: #96F7DD;
+}
+
+.delete:hover{
+    background-color: #96F7DD;
+    color: #ffffff;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+th {
+    padding: 5px 40px;
+}
+
+
+td {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+@media screen and (max-width:900px) {
+    .add {
+        margin-bottom: 30px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .add input {
+        width: 70%;
+        padding-right: 5px;
+        height: 30px;
+        border: 1px solid #CACACA;
+        border-radius: 5px;
+    }
+    
+    .add button {
+        margin-left: 5px;
+    }
+
+    th {
+        padding: 5px 20px;
+    }
+    
+    
+    td {
+        padding: 5px 5px;
+        text-align: center;
+    }
+    
+}

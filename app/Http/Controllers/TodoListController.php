@@ -29,12 +29,6 @@ class TodoListController extends Controller
         return view('find', $param);
     }
 
-    public function add()
-    {
-        $contents = TodoList::all();
-        return view('/todo/create', ['contents' => $contents]);
-    }
-
     public function create(Request $request)
     {
         $this->validate($request, TodoList::$rules);
@@ -43,23 +37,12 @@ class TodoListController extends Controller
         return redirect('/');
     }
 
-    public function edit()
-    {
-        $contents = TodoList::all();
-        return view('/todo/update', ['contents' => $contents]);
-    }
-
     public function update(Request $request)
     {
         $contents = $request->all();
+        unset($contents['_token']);
         TodoList::where('id', $request->id)->update($contents);
         return redirect('/');
-    }
-
-    public function delete()
-    {
-        $contents = TodoList::all();
-        return view('/todo/delete', ['contents' => $contents]);
     }
 
     public function remove(TodoList $contents)
